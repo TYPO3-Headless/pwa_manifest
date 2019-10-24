@@ -8,11 +8,6 @@ php:
 env:
   - TYPO3_VERSION=^9
 
-addons:
-  apt:
-    packages:
-      - parallel
-
 install:
   - composer require typo3/minimal:${TYPO3_VERSION}
   - git checkout composer.json
