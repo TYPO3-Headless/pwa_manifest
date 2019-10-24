@@ -1,4 +1,7 @@
 # TYPO3 Extension "pwa_manifest"
+
+[![Build Status](https://travis-ci.org/TYPO3-Initiatives/pwa_manifest.svg?branch=master)](https://travis-ci.org/TYPO3-Initiatives/pwa_manifest)
+
 This extension adds PWA Web App Manifest configuration in TYPO3 Site Configuration
 
 If you have any questions just drop a line in #initiative-pwa Slack channel.
