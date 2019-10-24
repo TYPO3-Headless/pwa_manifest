@@ -15,6 +15,10 @@ Install extension using composer\
 
 then, include typoscript template, and go to page with ?type=835.
 
+## Configuration
+Go straight to Settings module and run Extension Configuration in your TYPO3 backend.
+![Configuration](https://i.imgur.com/p25sUvd.png)
+
 ## Web App Manifest
 Check [reference](https://developers.google.com/web/fundamentals/web-app-manifest) for more information.
  ``` 
