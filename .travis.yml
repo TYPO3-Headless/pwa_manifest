@@ -8,11 +8,21 @@ php:
 env:
   - TYPO3_VERSION=^9
 
+addons:
+  apt:
+    packages:
+      - parallel
+
 install:
   - composer require typo3/minimal:${TYPO3_VERSION}
   - git checkout composer.json
   - export TYPO3_PATH_WEB="$PWD/.build/web"
 
+script:
+  - >
+    echo;
+    echo "PHP lint";
+    find . -name \*.php ! -path "./.build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
 jobs:
   include:
     - stage: quality
