@@ -1,22 +1,36 @@
 manifest {
-    # cat=Manifest/Manifest; type=string; label=Name
-    name =
     # cat=Manifest/Manifest; type=string; label=Short name
     short_name =
+    # cat=Manifest/Manifest; type=string; label=Name
+    name =
     # cat=Manifest/Manifest; type=string; label=Start url
     start_url =
-    icons {
-        # cat=Manifest/Manifest; type=string; label=Path to icon 192x192
-        icon_small =
-        # cat=Manifest/Manifest; type=string; label=Path to icon 512x512
-        icon_big =
-    }
     # cat=Manifest/Manifest; type=color; label=Background color
     background_color =
-    # cat=Manifest/Manifest; type=color; label=Theme color
-    theme_color =
-    # cat=Manifest/Manifest; type=string; label=Display (default: standalone)
+    # cat=Manifest/Manifest; type=string; label=Display
     display = standalone
     # cat=Manifest/Manifest; type=string; label=Scope
     scope =
+    # cat=Manifest/Manifest; type=color; label=Theme color
+    theme_color =
+    icons {
+        # cat=Icons/Icons; type=string; label=Small icon
+        0 {
+            # cat=Small Icon/Icons; type=string; label=Small icon source
+            src =
+            # cat=Small Icon/Icons; type=string; label=Small icon type
+            type = image/png
+            # cat=Small Icon/Icons; type=string; label=Small icon sizes
+            sizes = 192x192
+        }
+        # cat=Icon/Icons; type=string; label=Big icon
+        1 {
+            # cat=Big Icon/Icons; type=string; label=Big icon source
+            src =
+            # cat=Big Icon/Icons; type=string; label=Big icon type
+            type = image/png
+            # cat=Big Icon/Icons; type=string; label=Big icon sizes
+            sizes = 512x512
+        }
+    }
 }
