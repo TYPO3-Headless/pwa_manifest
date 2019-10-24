@@ -7,6 +7,8 @@ namespace FriendsOfTYPO3\PwaManifest\Service;
 use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationExtensionNotConfiguredException;
 use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationPathDoesNotExistException;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Http\ServerRequest;
+use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /***
@@ -30,12 +32,28 @@ class ConfigurationService
      */
     public function provideConfiguration(): string
     {
-        $settings = [];
-        try {
-            $settings = $this->getExtensionConfiguration()->get('pwa_manifest', 'manifest');
-        } catch (ExtensionConfigurationExtensionNotConfiguredException $e) {
-        } catch (ExtensionConfigurationPathDoesNotExistException $e) {
-        }
+        $siteConfiguration = $this->getSite()->getConfiguration();
+        $settings = [
+            'short_name' => $siteConfiguration['manifestShortName'] ?? '',
+            'name' => $siteConfiguration['manifestName'] ?? '',
+            'icons' => [
+                [
+                    'src' => $siteConfiguration['manifestSmallIconSource'] ?? '',
+                    'type' => $siteConfiguration['manifestSmallIconType'] ?? '',
+                    'sizes' => $siteConfiguration['manifestSmallIconSizes'] ?? '',
+                ],
+                [
+                    'src' => $siteConfiguration['manifestBigIconSource'] ?? '',
+                    'type' => $siteConfiguration['manifestBigIconType'] ?? '',
+                    'sizes' => $siteConfiguration['manifestBigIconSizes'] ?? '',
+                ]
+            ],
+            'start_url' => $siteConfiguration['manifestStartUrl'] ?? '',
+            'background_color' => $siteConfiguration['manifestBackgroundColor'] ?? '',
+            'display' => $siteConfiguration['manifestDisplay'] ?? '',
+            'scope' => $siteConfiguration['manifestScope'] ?? '',
+            'theme_color' => $siteConfiguration['manifestThemeColor'] ?? ''
+        ];
 
         return json_encode($settings);
     }
@@ -46,5 +64,21 @@ class ConfigurationService
     protected function getExtensionConfiguration(): ExtensionConfiguration
     {
         return GeneralUtility::makeInstance(ExtensionConfiguration::class);
+    }
+
+    /**
+     * @return ServerRequest
+     */
+    protected function getServerRequest(): ServerRequest
+    {
+        return $GLOBALS['TYPO3_REQUEST'];
+    }
+
+    /**
+     * @return Site
+     */
+    protected function getSite(): Site
+    {
+        return $this->getServerRequest()->getAttribute('site');
     }
 }

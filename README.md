@@ -16,7 +16,7 @@ Install extension using composer\
 then, include typoscript template, and go to page with ?type=835.
 
 ## Configuration
-Go straight to Settings module and run Extension Configuration in your TYPO3 backend.
+Go straight to Site Configuration in your TYPO3 backend and edit your page.
 ![Configuration](Documentation/Images/pwa_manifest_configuration.png)
 
 ## Web App Manifest
