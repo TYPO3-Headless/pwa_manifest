@@ -1,0 +1,37 @@
+{
+  "name": "friendsoftypo3/pwa_manifest",
+  "type": "typo3-cms-extension",
+  "description": "This extension provides Web App Manifest configuration.",
+  "keywords": [
+    "TYPO3",
+    "pwa",
+    "json",
+    "manifest"
+  ],
+  "license": [
+    "GPL-2.0-or-later"
+  ],
+  "authors": [
+    {
+      "name": "Tymoteusz Motylewski",
+      "role": "Head"
+    },
+    {
+      "name": "Łukasz Uznański",
+      "role": "Developer"
+    },
+    {
+      "name": "TYPO3 PWA Initiative",
+      "role": "Developer",
+      "email": "extensions@macopedia.pl"
+    }
+  ],
+  "require": {
+    "typo3/cms-core": "^9.5 || ^10.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "FriendsOfTYPO3\\PwaManifest\\": "Classes"
+    }
+  }
+}
