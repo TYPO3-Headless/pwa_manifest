@@ -1,0 +1,22 @@
+manifest {
+    # cat=Manifest/Manifest; type=string; label=Name
+    name =
+    # cat=Manifest/Manifest; type=string; label=Short name
+    short_name =
+    # cat=Manifest/Manifest; type=string; label=Start url
+    start_url =
+    icons {
+        # cat=Manifest/Manifest; type=string; label=Path to icon 192x192
+        icon_small =
+        # cat=Manifest/Manifest; type=string; label=Path to icon 512x512
+        icon_big =
+    }
+    # cat=Manifest/Manifest; type=color; label=Background color
+    background_color =
+    # cat=Manifest/Manifest; type=color; label=Theme color
+    theme_color =
+    # cat=Manifest/Manifest; type=string; label=Display (default: standalone)
+    display = standalone
+    # cat=Manifest/Manifest; type=string; label=Scope
+    scope =
+}
