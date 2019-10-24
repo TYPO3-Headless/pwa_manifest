@@ -16,7 +16,7 @@ Install extension using composer\
 then, include typoscript template, and go to page with ?type=835.
 
 ## Web App Manifest
-Check [reference](https://developers.google.com/web/fundamentals/web-app-manifest) for more informations.
+Check [reference](https://developers.google.com/web/fundamentals/web-app-manifest) for more information.
  ``` 
  {
     "short_name": "Maps",  
