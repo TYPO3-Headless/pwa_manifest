@@ -1,4 +1,4 @@
-# TYPO3 Extension "pwa_manifest"
+# TYPO3 Extension "PWA Manifest"
 
 [![Build Status](https://travis-ci.org/TYPO3-Initiatives/pwa_manifest.svg?branch=master)](https://travis-ci.org/TYPO3-Initiatives/pwa_manifest)
 
@@ -15,8 +15,12 @@ Install extension using composer\
 
 then, include typoscript template, and go to page with ?type=835.
 
+## Configuration
+Go straight to Settings module and run Extension Configuration in your TYPO3 backend.
+![Configuration](Documentation/Images/pwa_manifest_configuration.png)
+
 ## Web App Manifest
-Check [reference](https://developers.google.com/web/fundamentals/web-app-manifest) for more informations.
+Check [reference](https://developers.google.com/web/fundamentals/web-app-manifest) for more information.
  ``` 
  {
     "short_name": "Maps",  
