@@ -18,3 +18,27 @@ manifest {
         userFunc = FriendsOfTYPO3\PwaManifest\Service\ConfigurationService->provideConfiguration
     }
 }
+
+##############
+#### PAGE ####
+##############
+page = PAGE
+page {
+    headerData {
+        198765 = TEXT
+        198765.value = <link rel="manifest" href="/?type=835">
+    }
+    jsFooterInline {
+        198765 = COA
+        198765 {
+            10 = TEXT
+            10.value (
+                if ('serviceWorker' in navigator) {
+                  window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/typo3conf/ext/pwa_manifest/Public/Javascript/sw.js');
+                  });
+                }
+            )
+        }
+    }
+}
