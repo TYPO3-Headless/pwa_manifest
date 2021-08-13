@@ -8,6 +8,7 @@ use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Http\ServerRequest;
 use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 /***
  *
@@ -50,10 +51,36 @@ class ConfigurationService
             'background_color' => $siteConfiguration['manifestBackgroundColor'] ?? '',
             'display' => $siteConfiguration['manifestDisplay'] ?? '',
             'scope' => $siteConfiguration['manifestScope'] ?? '',
-            'theme_color' => $siteConfiguration['manifestThemeColor'] ?? ''
+            'theme_color' => $siteConfiguration['manifestThemeColor'] ?? '',
+            'shortcuts' => $this->getShortcutsConfiguration($siteConfiguration)
         ];
 
         return json_encode($settings);
+    }
+
+    protected function getShortcutsConfiguration(array $siteConfiguration): array
+    {
+        $contentObject = GeneralUtility::makeInstance(ContentObjectRenderer::class);
+        $shortcuts = [];
+        for ($i = 1; $i <= 3; $i++) {
+            if (
+                ($siteConfiguration["manifestShortcuts{$i}Name"] ?? '') !== '' &&
+                ($siteConfiguration["manifestShortcuts{$i}Url"] ?? '') !== ''
+            ) {
+                $shortcuts[] = \array_filter([
+                    'name' => $siteConfiguration["manifestShortcuts{$i}Name"] ?? '',
+                    'short_name' => $siteConfiguration["manifestShortcuts{$i}ShortName"] ?? '',
+                    'description' => $siteConfiguration["manifestShortcuts{$i}Description"] ?? '',
+                    'url' => $contentObject->typoLink_URL(['parameter' => $siteConfiguration["manifestShortcuts{$i}Url"] ?? '', 'forceAbsoluteUrl' => true]),
+                    'icons' => \array_filter([
+                        'src' => $siteConfiguration["manifestShortcuts{$i}IconSrc"] ?? '',
+                        'sizes' => $siteConfiguration["manifestShortcuts{$i}IconSizes"] ?? ''
+                    ])
+                ]);
+            }
+        }
+
+        return $shortcuts;
     }
 
     /**
