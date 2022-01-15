@@ -300,9 +300,10 @@ $GLOBALS['SiteConfiguration']['site']['palettes']['manifestShortcuts1']['showite
 $GLOBALS['SiteConfiguration']['site']['palettes']['manifestShortcuts2']['showitem'] = 'manifestShortcuts2Name,manifestShortcuts2ShortName,--linebreak--,manifestShortcuts2Description,--linebreak--,manifestShortcuts2Url,--linebreak--,manifestShortcuts2IconSrc,manifestShortcuts2IconSizes';
 $GLOBALS['SiteConfiguration']['site']['palettes']['manifestShortcuts3']['showitem'] = 'manifestShortcuts3Name,manifestShortcuts3ShortName,--linebreak--,manifestShortcuts3Description,--linebreak--,manifestShortcuts3Url,--linebreak--,manifestShortcuts3IconSrc,manifestShortcuts3IconSizes';
 
-$GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] = '--palette--;;default,--palette--;;base,
-                --div--;Manifest;manifest,--palette--;Manifest;manifest,--palette--;Colors;manifestColors,--palette--;Manifest small icon;manifestSmallIcon,--palette--;Manifest big icon;manifestBigIcon,
-                --div--;Manifest Shortcuts;manifest,--palette--;Manifest Shortcut 1;manifestShortcuts1,--palette--;Manifest Shortcut 2;manifestShortcuts2,--palette--;Manifest Shortcut 3;manifestShortcuts3,
-                --div--;LLL:EXT:backend/Resources/Private/Language/locallang_siteconfiguration_tca.xlf:site.tab.languages, languages,
-                --div--;LLL:EXT:backend/Resources/Private/Language/locallang_siteconfiguration_tca.xlf:site.tab.errorHandling, errorHandling,
-                --div--;LLL:EXT:backend/Resources/Private/Language/locallang_siteconfiguration_tca.xlf:site.tab.routes, routes';
+$GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] = str_replace(
+    'base,',
+    'base,
+    --div--;Manifest;manifest,--palette--;Manifest;manifest,--palette--;Colors;manifestColors,--palette--;Manifest small icon;manifestSmallIcon,--palette--;Manifest big icon;manifestBigIcon,
+    --div--;Manifest Shortcuts;manifest,--palette--;Manifest Shortcut 1;manifestShortcuts1,--palette--;Manifest Shortcut 2;manifestShortcuts2,--palette--;Manifest Shortcut 3;manifestShortcuts3,',
+    $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem']
+);
