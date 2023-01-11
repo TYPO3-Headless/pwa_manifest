@@ -27,10 +27,10 @@
     }
   ],
   "require": {
-    "typo3/cms-core": "^9.5 || ^10.0 || ^11.0"
+    "typo3/cms-core": "^12.0"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.15"
+    "friendsofphp/php-cs-fixer": "^3.13"
   },
   "autoload": {
     "psr-4": {
@@ -39,15 +39,21 @@
   },
   "scripts": {
     "cgl": [
-      "php-cs-fixer fix -v --dry-run --using-cache false --diff --diff-format=udiff"
+      "php-cs-fixer fix -v --dry-run --using-cache no --diff"
     ],
     "cgl-fix": [
-      "php-cs-fixer fix -v --using-cache false"
+      "php-cs-fixer fix -v --using-cache no"
     ]
   },
   "extra": {
     "typo3/cms": {
       "extension-key": "pwa_manifest"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "typo3/cms-composer-installers": true,
+      "typo3/class-alias-loader": true
     }
   }
 }

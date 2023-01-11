@@ -20,7 +20,8 @@ if (PHP_SAPI !== 'cli') {
     die('This script supports command line usage only. Please check your command.');
 }
 
-return PhpCsFixer\Config::create()
+$config = new PhpCsFixer\Config();
+return $config
     ->setRiskyAllowed(true)
     ->setRules([
         '@DoctrineAnnotation' => true,
@@ -31,9 +32,11 @@ return PhpCsFixer\Config::create()
         'dir_constant' => true,
         'function_typehint_space' => true,
         'general_phpdoc_annotation_remove' => [
-            'author'
+            'annotations' => [
+                'author'
+            ]
         ],
-        'hash_to_slash_comment' => true,
+        'single_line_comment_style' => true,
         'lowercase_cast' => true,
         'modernize_types_casting' => true,
         'native_function_casing' => true,
@@ -41,14 +44,14 @@ return PhpCsFixer\Config::create()
         'no_blank_lines_after_phpdoc' => true,
         'no_empty_phpdoc' => true,
         'no_empty_statement' => true,
-        'no_extra_consecutive_blank_lines' => true,
+        'no_extra_blank_lines' => true,
         'no_leading_import_slash' => true,
         'no_leading_namespace_whitespace' => true,
         'no_null_property_initialization' => true,
         'no_short_bool_cast' => true,
         'no_singleline_whitespace_before_semicolons' => true,
         'no_superfluous_elseif' => true,
-        'no_trailing_comma_in_singleline_array' => true,
+        'no_trailing_comma_in_singleline' => true,
         'no_unneeded_control_parentheses' => true,
         'no_unused_imports' => true,
         'no_useless_else' => true,

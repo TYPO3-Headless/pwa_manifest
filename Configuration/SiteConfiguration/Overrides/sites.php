@@ -29,8 +29,7 @@ $GLOBALS['SiteConfiguration']['site']['columns']['manifestStartUrl'] = [
 $GLOBALS['SiteConfiguration']['site']['columns']['manifestBackgroundColor'] = [
     'label' => 'Background color',
     'config' => [
-        'type' => 'input',
-        'renderType' => 'colorpicker',
+        'type' => 'color',
         'size' => 20
     ],
 ];
@@ -58,8 +57,7 @@ $GLOBALS['SiteConfiguration']['site']['columns']['manifestScope'] = [
 $GLOBALS['SiteConfiguration']['site']['columns']['manifestThemeColor'] = [
     'label' => 'Theme color',
     'config' => [
-        'type' => 'input',
-        'renderType' => 'colorpicker',
+        'type' => 'color',
         'size' => 20,
     ],
 ];
@@ -148,12 +146,13 @@ $GLOBALS['SiteConfiguration']['site']['columns']['manifestShortcuts1Url'] = [
     'config' => [
         'size' => 50,
         'eval' => 'trim',
-        'renderType' => 'inputLink',
-        'type' => 'input',
+        'type' => 'link',
         'fieldControl' => [
             'linkPopup' => [
                 'options' => [
-                    'blindLinkOptions' => 'file,telephone,mail,spec,folder',],],
+                    'blindLinkOptions' => 'file,telephone,mail,spec,folder',
+                ],
+            ],
         ],
     ],
 ];
@@ -207,12 +206,13 @@ $GLOBALS['SiteConfiguration']['site']['columns']['manifestShortcuts2Url'] = [
     'config' => [
         'size' => 50,
         'eval' => 'trim',
-        'renderType' => 'inputLink',
-        'type' => 'input',
+        'type' => 'link',
         'fieldControl' => [
             'linkPopup' => [
                 'options' => [
-                    'blindLinkOptions' => 'file,telephone,mail,spec,folder',],],
+                    'blindLinkOptions' => 'file,telephone,mail,spec,folder',
+                ],
+            ],
         ],
     ],
 ];
@@ -266,12 +266,13 @@ $GLOBALS['SiteConfiguration']['site']['columns']['manifestShortcuts3Url'] = [
     'config' => [
         'size' => 50,
         'eval' => 'trim',
-        'renderType' => 'inputLink',
-        'type' => 'input',
+        'type' => 'link',
         'fieldControl' => [
             'linkPopup' => [
                 'options' => [
-                    'blindLinkOptions' => 'file,telephone,mail,spec,folder',],],
+                    'blindLinkOptions' => 'file,telephone,mail,spec,folder',
+                ],
+            ],
         ],
     ],
 ];
