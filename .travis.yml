@@ -3,10 +3,10 @@ sudo: false
 language: php
 
 php:
-  - 7.2
+  - 8.1
 
 env:
-  - TYPO3_VERSION=^9
+  - TYPO3_VERSION=^12
 
 addons:
   apt:
@@ -26,7 +26,7 @@ script:
 jobs:
   include:
     - stage: quality
-      php: 7.2
+      php: 8.1
       script: composer cgl
 
 cache:
